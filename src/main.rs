@@ -1,15 +1,13 @@
-struct HINHCHUNHAT{
-    dai: u32,
-    rong: u32,
+fn main(){
+    let five = Some(5);
+    let six = plus_one(five);
+    println!("six = {:#?}",six);
+    let none = plus_one(None);
+    println!("None = {:#?}",none);
 }
-impl HINHCHUNHAT {
-    fn dien_tich(&self) -> u32 {
-        self.dai  * self.rong
+fn plus_one(x:Option<i32>) -> Option<i32> {
+    match x {
+       Some(x) => Some(x+1),
+       _ => None,
     }
 }
-fn main() {
-    let kichthuoc = &HINHCHUNHAT{dai:30,rong:50};
-    println!("Dien tich is {}",kichthuoc.dien_tich());
-}
-
-
