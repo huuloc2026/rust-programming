@@ -1,14 +1,17 @@
+
 fn main() {
-    let mut fruits = String::from("Hello world");
-    print_fruit(&mut fruits);
-    //borrowing
-    println!(">AFTER value copy is {}",fruits)
-    //mutable reference
-
+    let colors = vec!["Red", "Yellow", "Green"];
+    
+    // sử dụng into_iter()
+    for color in colors.into_iter() {
+        // mỗi phần tử sẽ drop sau khi kết thúc phạm 
+        // vi duyệt
+        println!("{}", color);
+    }
+    // hết phạm vi duyệt
+    
+    // Lỗi 
+    // collection bị xoá 
+    println!("colors = {:?}", color);
 }
 
-
-fn print_fruit(str:&mut String){
-    println!(">>BEFORE value is {}",str);
-    let _new_fruit = str.push_str(" - accepted by ownership!!");
-}
