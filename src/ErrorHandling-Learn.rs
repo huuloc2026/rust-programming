@@ -25,3 +25,27 @@ fn main() {
     println!("Data file: {:?}", data_file);
 
 }
+
+fn main(){
+    let alice = get_user("");
+    //case 1 using match
+    match alice {
+        Some(value) => println!("Get user is {:?}",value),
+        None => println!("No have value"),
+        
+    }
+    //case 2 using unwrap.
+    let bob_unwrap = get_user("Bob2").unwrap();
+    println!("Bob value: {bob_unwrap}");
+    let charlie_unexpect = get_user("").expect("====Please input your name, Charlie!!");
+    println!("Bob value: {charlie_unexpect}");     
+
+    
+}   
+fn get_user(username: &str) -> Option<&str> {
+    if username.is_empty() {
+        return None;
+    }
+
+    return Some(username);
+}
